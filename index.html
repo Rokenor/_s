@@ -24,12 +24,25 @@
 				<label for="q_size">Size</label>
 				<input id="input__size" type="text" name="q_size">
 			</div>
+			<div class="info__wrapper">
+				<label for="q_ceed">Ceeds</label>
+				<input id="input__ceed" type="text" name="q_ceed">
+			</div>
 		</div>
 		<div class="field"></div>
 	</div>
 	<script>
 		$(document).ready(function(){
-			Snake(10, 10, 20);
+			/*
+				Default setup:
+				--------------
+				rows,
+				cols,
+				size of cell (px),
+				start position X,
+				start position Y
+			*/
+			Snake(10, 10, 20, 1, 1);
 		});
 	</script>
 </body>

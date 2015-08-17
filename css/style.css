@@ -49,3 +49,10 @@ body {
 .cell.active {
 	background: #aa00dd;
 }
+
+.snake {
+	background: #000;
+}
+.ceed {
+	background: #f00;
+}
