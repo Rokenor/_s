@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>_s</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/scripts.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="info">
+			<div class="info__wrapper">
+				<label for="q_rows">Rows</label>
+				<input id="input__rows" type="text" name="q_rows">
+			</div>
+			<div class="info__wrapper">
+				<label for="q_cols">Cols</label>
+				<input id="input__cols" type="text" name="q_cols">
+			</div>
+			<div class="info__wrapper">
+				<label for="q_size">Size</label>
+				<input id="input__size" type="text" name="q_size">
+			</div>
+		</div>
+		<div class="field"></div>
+	</div>
+	<script>
+		$(document).ready(function(){
+			Snake(10, 10, 20);
+		});
+	</script>
+</body>
+</html>
