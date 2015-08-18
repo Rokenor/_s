@@ -44,19 +44,25 @@ var Snake = function(dfRows, dfCols, dfSize, dfStartX, dfStartY) {
 	var moveSnake = function(x, y) {
 		var currentPosition = $('.snake').data('id');
 
-		$('.cell[data-id="' + x + '_' + y +'"]').addClass('snake');
+		$('.cell[data-id="' + x + '_' + y +'"]').addClass('snake');		
 
 		if($('.cell[data-id="' + x + '_' + y +'"]').hasClass('snake')) {
+
+			$('.cell[data-id="' + currentPosition +'"]').removeClass('snake').addClass('tail');
 
 			if($('.cell[data-id="' + x + '_' + y +'"]').hasClass('ceed')) {
 				$('.cell[data-id="' + x + '_' + y +'"]').removeClass('ceed');
 				qtCeed = qtCeed-1;
 				$('#input__ceed').val(qtCeed);
+				if(qtCeed <= 0) {
+					alert('GOOD!!!');
+					clearInterval(ceedInterval);
+				}
 			}
 
 			setTimeout(function() {
-				$('.cell[data-id="' + currentPosition +'"]').removeClass('snake');
-			}, 50);
+				$('.cell[data-id="' + currentPosition +'"]').removeClass('tail');
+			}, 100);
 		} else {
 			alert('BOOM!!!');
 		}
@@ -79,10 +85,12 @@ var Snake = function(dfRows, dfCols, dfSize, dfStartX, dfStartY) {
 		}
 	};
 
-	var autoMove = function() {
-		setInterval(function() {
+	var ceedInterval = setInterval(function(){
 			setDirection(dfDirection);
-		}, 500);
+		}, 500);		
+
+	var autoMove = function() {
+		ceedInterval;
 	};
 
 	var getRandomInt = function(min, max) {
@@ -97,8 +105,6 @@ var Snake = function(dfRows, dfCols, dfSize, dfStartX, dfStartY) {
 
 			var ceedX = getRandomInt(0, qtCols-1),
 				ceedY = getRandomInt(0, qtRows-1);
-			
-				console.log(ceedX + ' ' + ceedY);
 
 			if((ceedX == dfStartX) && (ceedY == dfStartY)) {
 
@@ -121,7 +127,7 @@ var Snake = function(dfRows, dfCols, dfSize, dfStartX, dfStartY) {
 		setField();
 		setSnake(startX, startY);
 		setCeed();
-		// autoMove();
+		autoMove();
 	};
 	_init();
 

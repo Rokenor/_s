@@ -53,6 +53,9 @@ body {
 .snake {
 	background: #000;
 }
+.tail {
+	background: #666;
+}
 .ceed {
 	background: #f00;
 }
